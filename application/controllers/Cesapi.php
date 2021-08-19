@@ -10,6 +10,7 @@ class Cesapi extends CI_Controller {
 		// var_dump($_POST);
 		// var_dump($_REQUEST);
 		//$this->load->view('welcome_message');
+        
     }
     public function testAPIs(){
         echo $this->input->server('REQUEST_METHOD');
