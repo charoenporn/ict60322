@@ -4,12 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Cesapi extends CI_Controller {
 	public function index()
 	{
-		// echo "ces --> index<br>";
-		// echo $this->input->server('REQUEST_METHOD');
-		// var_dump($_GET);
-		// var_dump($_POST);
-		// var_dump($_REQUEST);
-		//$this->load->view('welcome_message');
         
     }
     public function testAPIs(){
@@ -35,9 +29,39 @@ class Cesapi extends CI_Controller {
     public function getSchoolbyKeyword(){
 
     }
+
     public function updateSchool(){
 
     }
+
+    public function deleteSchool1($id){
+        echo $id;
+        $this->load->model('School_model');
+        $data = $this->School_model->delSchoolByID($id);
+        if($data > 0 ){
+            echo "Del OK";
+        }else{
+            echo "Del Not OK";
+        }
+    }
+    public function deleteSchool2(){
+        $id = $_GET["id"];
+        echo $id;
+
+    }
+    public function deleteSchool3(){
+        $id = $_POST["id"];
+        echo $id;
+    }
+
+    public function deleteMajor($id){
+        //$id = $_POST["sid"];
+    }
+
+    //1 : loclhost/ict60_322/index.php/Cesapi/deleteSchool?id=125
+    //2 : loclhost/ict60_322/index.php/Cesapi/deleteSchool/125
+    //3 : loclhost/ict60_322/index.php/Cesapi/deleteSchool
+
 
 
 }

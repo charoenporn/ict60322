@@ -15,4 +15,10 @@ class School_model extends CI_Model {
         return $query->result_array();
     }
 
+    function delSchoolByID($id){
+        $sql = "UPDATE  School SET  flag  = '0' WHERE SID= ".$id." ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
 }
