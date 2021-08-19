@@ -47,11 +47,25 @@ class Cesapi extends CI_Controller {
     public function deleteSchool2(){
         $id = $_GET["id"];
         echo $id;
+        $this->load->model('School_model');
+        $data = $this->School_model->delSchoolByID($id);
+        if($data > 0 ){
+            echo "Del OK";
+        }else{
+            echo "Del Not OK";
+        }
 
     }
     public function deleteSchool3(){
         $id = $_POST["id"];
         echo $id;
+        $this->load->model('School_model');
+        $data = $this->School_model->delSchoolByID($id);
+        if($data > 0 ){
+            echo "Del OK";
+        }else{
+            echo "Del Not OK";
+        }
     }
 
     public function deleteMajor($id){
