@@ -88,7 +88,25 @@ class Cesapi extends CI_Controller {
     }
 
     public function deleteMajor($id){
-        //$id = $_POST["sid"];
+        // APIs ที่ให้ admin ใช้งานเท่านั้น (autority == 1)
+        $username = $_POST["user_login"];
+        $password = $_POST["password_login"];
+        $this->load->model('User_model');
+        //$arr_auto = array(1,2,3);// Set 1
+        $arr_auto = array(1);// Set 1
+        if($this->User_model->check_user_autority($username,$password,$arr_auto)){
+            echo "Login OK";
+            $this->load->model('School_model');
+            $data = $this->School_model->delMajorByID($id);
+            if($data > 0 ){
+                echo "Del OK";
+            }else{
+                echo "Del Not OK";
+            }
+        }else{
+            echo "Login NOT-OK";
+        }
+
     }
 
     //1 : loclhost/ict60_322/index.php/Cesapi/deleteSchool?id=125

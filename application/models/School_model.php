@@ -21,4 +21,11 @@ class School_model extends CI_Model {
         return $query;
     }
 
+
+    function delMajorByID($id){
+        $sql = "UPDATE  Major SET  flag  = '0' WHERE MID= ".$id." ";
+        $query = $this->db->query($sql);
+        return $query;
+    }
+
 }
